@@ -21,7 +21,7 @@ rm -rf feeds/luci/applications/luci-app-serverchan
 
 #插件包
 git clone --depth=1 https://github.com/immortalwrt/packages package/packages
-git clone --depth=1 https://github.com/haiibo/openwrt-packages package/openwrt-packages
+git clone --depth=1 -b master https://github.com/haiibo/openwrt-packages package/openwrt-packages
 git clone --depth=1 https://github.com/sirpdboy/sirpdboy-package package/sirpdboy-package
 git clone --depth=1 https://github.com/sirpdboy/luci-app-lucky package/luci-app-lucky
 
