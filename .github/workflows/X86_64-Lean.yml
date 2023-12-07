@@ -1,4 +1,4 @@
-name: X86_64 L
+name: X86_64 Lean
 
 on:
   workflow_dispatch:
