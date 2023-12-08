@@ -20,10 +20,12 @@ rm -rf feeds/luci/applications/luci-app-netdata
 rm -rf feeds/luci/applications/luci-app-serverchan
 
 #插件包
-git clone --depth=1 https://github.com/immortalwrt/packages package/packages
-git clone --depth=1 -b master https://github.com/haiibo/openwrt-packages package/openwrt-packages
-git clone --depth=1 https://github.com/sirpdboy/sirpdboy-package package/sirpdboy-package
-git clone --depth=1 https://github.com/sirpdboy/luci-app-lucky package/luci-app-lucky
+git clone https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
+git clone https://github.com/kenzok8/small.git package/small
+git clone https://github.com/haiibo/openwrt-packages.git package/haiibo-packages
+git clone https://github.com/sirpdboy/sirpdboy-package.git package/sirpdboy-package
+git clone https://github.com/tty228/luci-app-wechatpush.git package/luci-app-wechatpush
+git clone https://github.com/sirpdboy/luci-app-lucky.git package/luci-app-lucky
 
 # 添加额外插件
 git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
@@ -73,8 +75,10 @@ cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argon/htdocs/luci-stat
 #git clone --depth=1 https://github.com/ximiTech/msd_lite package/msd_lite
 
 # MosDNS
-svn export https://github.com/sbwml/luci-app-mosdns/trunk/luci-app-mosdns package/luci-app-mosdns
-svn export https://github.com/sbwml/luci-app-mosdns/trunk/mosdns package/mosdns
+#svn export https://github.com/sbwml/luci-app-mosdns/trunk/luci-app-mosdns package/luci-app-mosdns
+#svn export https://github.com/sbwml/luci-app-mosdns/trunk/mosdns package/mosdns
+git clone https://github.com/sbwml/luci-app-mosdns -b v5 luci-app-mosdns package/luci-app-mosdns
+git clone https://github.com/sbwml/v2ray-geodata v2ray-geodata package/v2ray-geodata
 
 # DDNS.to
 #svn export https://github.com/linkease/nas-packages-luci/trunk/luci/luci-app-ddnsto package/luci-app-ddnsto
