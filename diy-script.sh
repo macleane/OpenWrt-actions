@@ -9,13 +9,13 @@ sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bis
   python-docutils python3-pyelftools qemu-utils re2c rsync scons squashfs-tools subversion swig \
   texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
 # 修改默认IP
-# sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
+ sed -i 's/10.10.10.9/10.0.0.1/g' package/base-files/files/bin/config_generate
 
 # 更改默认 Shell 为 zsh
-# sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
+ sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 
 # TTYD 自动登录
-# sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
+ sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
 
 # 移除要替换的包
 rm -rf feeds/packages/net/mosdns
@@ -66,7 +66,7 @@ git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/l
 svn export https://github.com/haiibo/packages/trunk/luci-theme-netgear package/luci-theme-netgear
 
 # 更改 Argon 主题背景
-cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+#cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
 # 晶晨宝盒
 #svn export https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
@@ -97,8 +97,8 @@ git clone https://github.com/sbwml/v2ray-geodata v2ray-geodata package/v2ray-geo
 #svn export https://github.com/sbwml/luci-app-alist/trunk/alist package/alist
 
 # iStore
-#svn export https://github.com/linkease/istore-ui/trunk/app-store-ui package/app-store-ui
-#svn export https://github.com/linkease/istore/trunk/luci package/luci-app-store
+svn export https://github.com/linkease/istore-ui/trunk/app-store-ui package/app-store-ui
+svn export https://github.com/linkease/istore/trunk/luci package/luci-app-store
 
 # 在线用户
 svn export https://github.com/haiibo/packages/trunk/luci-app-onliner package/luci-app-onliner
@@ -127,7 +127,7 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_U
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_URL:=@GHCODELOAD/PKG_SOURCE_URL:=https:\/\/codeload.github.com/g' {}
 
 # 取消主题默认设置
-find package/luci-theme-*/* -type f -name '*luci-theme-*' -print -exec sed -i '/set luci.main.mediaurlbase/d' {} \;
+#find package/luci-theme-*/* -type f -name '*luci-theme-*' -print -exec sed -i '/set luci.main.mediaurlbase/d' {} \;
 
 # 调整 V2ray服务器 到 VPN 菜单
 # sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-v2ray-server/luasrc/controller/*.lua
