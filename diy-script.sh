@@ -34,6 +34,7 @@ git clone https://github.com/haiibo/openwrt-packages.git package/haiibo-packages
 git clone https://github.com/sirpdboy/sirpdboy-package.git package/sirpdboy-package
 git clone https://github.com/tty228/luci-app-wechatpush.git package/luci-app-wechatpush
 git clone https://github.com/sirpdboy/luci-app-lucky.git package/luci-app-lucky
+git clone https://github.com/immortalwrt/packages.git package/immortalwrt-packages
 
 # 添加额外插件
 git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
