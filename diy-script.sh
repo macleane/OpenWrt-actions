@@ -30,21 +30,26 @@ rm -rf feeds/luci/applications/luci-app-serverchan
 #插件包
 git clone https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
 git clone https://github.com/kenzok8/small.git package/small
-git clone https://github.com/haiibo/openwrt-packages.git package/haiibo-packages
+# git clone https://github.com/haiibo/openwrt-packages.git package/haiibo-packages
 git clone https://github.com/sirpdboy/sirpdboy-package.git package/sirpdboy-package
 git clone https://github.com/tty228/luci-app-wechatpush.git package/luci-app-wechatpush
 git clone https://github.com/sirpdboy/luci-app-lucky.git package/luci-app-lucky
-git clone https://github.com/immortalwrt/packages.git package/immortalwrt-packages
-git clone https://github.com/immortalwrt/homeproxy.git package/homeproxy
+git clone https://github.com/xiaorouji/openwrt-passwall2.git
+git clone https://github.com/xiaorouji/openwrt-passwall-packages.git
+git clone https://github.com/xiaorouji/openwrt-passwall.git
+git clone https://github.com/brvphoenix/wrtbwmon.git
+git clone https://github.com/sirpdboy/luci-app-chatgpt-web.git
+git clone https://github.com/rufengsuixing/luci-app-onliner.git
+git clone https://github.com/chenmozhijin/turboacc.git
 
 # 添加额外插件
 git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
-git clone --depth=1 -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-serverchan
+# git clone --depth=1 -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-serverchan
 #git clone --depth=1 https://github.com/ilxp/luci-app-ikoolproxy package/luci-app-ikoolproxy
 #git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
 #git clone --depth=1 https://github.com/destan19/OpenAppFilter package/OpenAppFilter
-git clone --depth=1 https://github.com/Jason6111/luci-app-netdata package/luci-app-netdata
-svn export https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser package/luci-app-filebrowser
+# git clone --depth=1 https://github.com/Jason6111/luci-app-netdata package/luci-app-netdata
+# svn export https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser package/luci-app-filebrowser
 #svn export https://github.com/Lienol/openwrt-package/trunk/luci-app-ssr-mudb-server package/luci-app-ssr-mudb-server
 #svn export https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-eqos package/luci-app-eqos
 # svn export https://github.com/syb999/openwrt-19.07.1/trunk/package/network/services/msd_lite package/msd_lite
@@ -66,6 +71,10 @@ git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/l
 #svn export https://github.com/haiibo/packages/trunk/luci-theme-atmaterial package/luci-theme-atmaterial
 #svn export https://github.com/haiibo/packages/trunk/luci-theme-opentomcat package/luci-theme-opentomcat
 svn export https://github.com/haiibo/packages/trunk/luci-theme-netgear package/luci-theme-netgear
+git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom
+git clone https://github.com/apollo-ng/luci-theme-darkmatter
+git clone https://gitlab.stusta.de/stustanet/luci-theme-ssn
+git clone https://github.com/LeoHao/PPIP_LUCI_THEME
 
 # 更改 Argon 主题背景
 #cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
