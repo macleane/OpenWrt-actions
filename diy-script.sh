@@ -30,7 +30,6 @@ rm -rf feeds/luci/applications/luci-app-serverchan
 #插件包
 git clone --depth=1 https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
 git clone --depth=1 https://github.com/kenzok8/small.git package/small
-# git clone --depth=1 https://github.com/haiibo/openwrt-packages.git package/haiibo-packages
 git clone --depth=1 https://github.com/sirpdboy/sirpdboy-package.git package/sirpdboy-package
 git clone --depth=1 https://github.com/tty228/luci-app-wechatpush.git package/luci-app-wechatpush
 git clone --depth=1 https://github.com/sirpdboy/luci-app-lucky.git package/luci-app-lucky
@@ -38,16 +37,14 @@ git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages.git
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall.git
 git clone --depth=1 https://github.com/brvphoenix/wrtbwmon.git
-# git clone https://github.com/sirpdboy/luci-app-chatgpt-web.git
 git clone --depth=1 https://github.com/rufengsuixing/luci-app-onliner.git
-# git clone https://github.com/chenmozhijin/turboacc.git
 
 # 添加额外插件
 # git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
 # git clone --depth=1 -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-serverchan
-#git clone --depth=1 https://github.com/ilxp/luci-app-ikoolproxy package/luci-app-ikoolproxy
-#git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
-#git clone --depth=1 https://github.com/destan19/OpenAppFilter package/OpenAppFilter
+# git clone --depth=1 https://github.com/ilxp/luci-app-ikoolproxy package/luci-app-ikoolproxy
+# git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
+# git clone --depth=1 https://github.com/destan19/OpenAppFilter package/OpenAppFilter
 # git clone --depth=1 https://github.com/Jason6111/luci-app-netdata package/luci-app-netdata
 # svn export https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser package/luci-app-filebrowser
 #svn export https://github.com/Lienol/openwrt-package/trunk/luci-app-ssr-mudb-server package/luci-app-ssr-mudb-server
@@ -65,8 +62,8 @@ git clone --depth=1 https://github.com/rufengsuixing/luci-app-onliner.git
 
 # Themes
 #git clone --depth=1 -b 18.06 https://github.com/kiddin9/luci-theme-edge package/luci-theme-edge
-git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
-git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+#git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+#git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 #git clone --depth=1 https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 #svn export https://github.com/haiibo/packages/trunk/luci-theme-atmaterial package/luci-theme-atmaterial
 #svn export https://github.com/haiibo/packages/trunk/luci-theme-opentomcat package/luci-theme-opentomcat
@@ -77,13 +74,13 @@ git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/l
 # git clone https://github.com/LeoHao/PPIP_LUCI_THEME
 
 # 更改 Argon 主题背景
-cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+#cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
 # 晶晨宝盒
 svn export https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
-# sed -i "s|firmware_repo.*|firmware_repo 'https://github.com/haiibo/OpenWrt'|g" package/luci-app-amlogic/root/etc/config/amlogic
-# sed -i "s|kernel_path.*|kernel_path 'https://github.com/ophub/kernel'|g" package/luci-app-amlogic/root/etc/config/amlogic
-#sed -i "s|ARMv8|ARMv8_PLUS|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|firmware_repo.*|firmware_repo 'https://github.com/haiibo/OpenWrt'|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|kernel_path.*|kernel_path 'https://github.com/ophub/kernel'|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|ARMv8|ARMv8_PLUS|g" package/luci-app-amlogic/root/etc/config/amlogic
 
 # SmartDNS
 #git clone --depth=1 -b lede https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
@@ -96,8 +93,8 @@ git clone --depth=1 https://github.com/ximiTech/msd_lite package/msd_lite
 # MosDNS
 #svn export https://github.com/sbwml/luci-app-mosdns/trunk/luci-app-mosdns package/luci-app-mosdns
 #svn export https://github.com/sbwml/luci-app-mosdns/trunk/mosdns package/mosdns
-git clone https://github.com/sbwml/luci-app-mosdns -b v5 luci-app-mosdns package/luci-app-mosdns
-git clone https://github.com/sbwml/v2ray-geodata v2ray-geodata package/v2ray-geodata
+#git clone https://github.com/sbwml/luci-app-mosdns -b v5 luci-app-mosdns package/luci-app-mosdns
+#git clone https://github.com/sbwml/v2ray-geodata v2ray-geodata package/v2ray-geodata
 
 # DDNS.to
 #svn export https://github.com/linkease/nas-packages-luci/trunk/luci/luci-app-ddnsto package/luci-app-ddnsto
@@ -108,13 +105,13 @@ git clone https://github.com/sbwml/v2ray-geodata v2ray-geodata package/v2ray-geo
 #svn export https://github.com/sbwml/luci-app-alist/trunk/alist package/alist
 
 # iStore
-#svn export https://github.com/linkease/istore-ui/trunk/app-store-ui package/app-store-ui
-#svn export https://github.com/linkease/istore/trunk/luci package/luci-app-store
+svn export https://github.com/linkease/istore-ui/trunk/app-store-ui package/app-store-ui
+svn export https://github.com/linkease/istore/trunk/luci package/luci-app-store
 
 # 在线用户
-svn export https://github.com/haiibo/packages/trunk/luci-app-onliner package/luci-app-onliner
-sed -i '$i uci set nlbwmon.@nlbwmon[0].refresh_interval=2s' package/lean/default-settings/files/zzz-default-settings
-sed -i '$i uci commit nlbwmon' package/lean/default-settings/files/zzz-default-settings
+#svn export https://github.com/haiibo/packages/trunk/luci-app-onliner package/luci-app-onliner
+#sed -i '$i uci set nlbwmon.@nlbwmon[0].refresh_interval=2s' package/lean/default-settings/files/zzz-default-settings
+#sed -i '$i uci commit nlbwmon' package/lean/default-settings/files/zzz-default-settings
 chmod 755 package/luci-app-onliner/root/usr/share/onliner/setnlbw.sh
 
 # x86 型号只显示 CPU 型号
