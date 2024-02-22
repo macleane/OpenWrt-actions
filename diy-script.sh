@@ -30,25 +30,24 @@ rm -rf feeds/luci/applications/luci-app-serverchan
 #插件包
 git clone --depth=1 https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
 git clone --depth=1 https://github.com/kenzok8/small.git package/small
-git clone --depth=1 https://github.com/sirpdboy/sirpdboy-package.git package/sirpdboy-package
+#git clone --depth=1 https://github.com/sirpdboy/sirpdboy-package.git package/sirpdboy-package
+git clone --depth=1 https://github.com/sirpdboy/luci-app-autotimeset.git package/luci-app-autotimeset
+git clone --depth=1 https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
 git clone --depth=1 https://github.com/tty228/luci-app-wechatpush.git package/luci-app-wechatpush
 git clone --depth=1 https://github.com/sirpdboy/luci-app-lucky.git package/luci-app-lucky
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git package/passwall2
 git clone --depth=1 https://github.com/brvphoenix/wrtbwmon.git package/wrtbwmon
-#git clone --depth=1 https://github.com/haiibo/luci-app-onliner.git package/luci-app-onliner
+git clone --depth=1 https://github.com/haiibo/luci-app-onliner.git package/luci-app-onliner
 git clone --depth=1 https://github.com/sirpdboy/luci-app-eqosplus package/luci-app-eqosplus
-git clone --depth=1 https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-advancedplus
 git clone --depth=1 https://github.com/lucikap/luci-app-nettask.git package/luci-app-nettask
 git clone --depth=1 https://github.com/sbwml/openwrt_helloworld.git package/openwrt_helloworld
 git clone --depth=1 https://github.com/sbwml/luci-app-airconnect.git package/luci-app-airconnect
 git clone --depth=1 https://github.com/sbwml/luci-app-daed-next.git package/luci-app-daed-next
-git clone --depth=1 https://github.com/chenmozhijin/turboacc.git -b luci package/luci-app-turboacc
-git clone --depth=1 https://github.com/chenmozhijin/turboacc.git -b package package/package-turboacc
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
 find ./ | grep Makefile | grep mosdns | xargs rm -f
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
-git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+#git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
 # 添加额外插件
 # git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
