@@ -7,9 +7,9 @@ sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bis
   libncursesw5-dev libpython3-dev libreadline-dev libssl-dev libtool lld llvm lrzsz mkisofs msmtp \
   nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pip python3-ply \
   python-docutils python3-pyelftools qemu-utils re2c rsync scons squashfs-tools subversion swig \
-  texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
+  texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev golang
 # 修改默认IP
- sed -i 's/10.10.10.9/10.0.0.1/g' package/base-files/files/bin/config_generate
+ #sed -i 's/10.10.10.9/10.0.0.1/g' package/base-files/files/bin/config_generate
 
 # 更改默认 Shell 为 zsh
  sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
@@ -18,19 +18,19 @@ sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bis
  sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
 
 # 移除要替换的包
-rm -rf feeds/packages/net/mosdns
-rm -rf feeds/packages/net/msd_lite
-rm -rf feeds/packages/net/smartdns
-rm -rf feeds/luci/themes/luci-theme-argon
-rm -rf feeds/luci/themes/luci-theme-netgear
-rm -rf feeds/luci/applications/luci-app-mosdns
-rm -rf feeds/luci/applications/luci-app-netdata
-rm -rf feeds/luci/applications/luci-app-serverchan
+#rm -rf feeds/packages/net/mosdns
+#rm -rf feeds/packages/net/msd_lite
+#rm -rf feeds/packages/net/smartdns
+#rm -rf feeds/luci/themes/luci-theme-argon
+#rm -rf feeds/luci/themes/luci-theme-netgear
+#rm -rf feeds/luci/applications/luci-app-mosdns
+#rm -rf feeds/luci/applications/luci-app-netdata
+#rm -rf feeds/luci/applications/luci-app-serverchan
 
 #插件包
-git clone --depth=1 https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
-git clone --depth=1 https://github.com/kenzok8/small.git package/small
-#git clone --depth=1 https://github.com/sirpdboy/sirpdboy-package.git package/sirpdboy-package
+#git clone --depth=1 https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
+#git clone --depth=1 https://github.com/kenzok8/small.git package/small
+git clone --depth=1 https://github.com/sirpdboy/sirpdboy-package.git package/sirpdboy-package
 git clone --depth=1 https://github.com/sirpdboy/luci-app-autotimeset.git package/luci-app-autotimeset
 git clone --depth=1 https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
 git clone --depth=1 https://github.com/tty228/luci-app-wechatpush.git package/luci-app-wechatpush
@@ -43,11 +43,15 @@ git clone --depth=1 https://github.com/sirpdboy/luci-app-eqosplus package/luci-a
 git clone --depth=1 https://github.com/lucikap/luci-app-nettask.git package/luci-app-nettask
 git clone --depth=1 https://github.com/sbwml/openwrt_helloworld.git package/openwrt_helloworld
 git clone --depth=1 https://github.com/sbwml/luci-app-airconnect.git package/luci-app-airconnect
-git clone --depth=1 https://github.com/sbwml/luci-app-daed-next.git package/luci-app-daed-next
+#git clone --depth=1 https://github.com/sbwml/luci-app-daed-next.git package/luci-app-daed-next
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
 find ./ | grep Makefile | grep mosdns | xargs rm -f
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
-#git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+#turboacc
+git clone --depth=1 https://github.com/chenmozhijin/turboacc.git -b luci package/luci-app-turboacc
+git clone --depth=1 https://github.com/chenmozhijin/turboacc.git -b package package/package-turboacc
+echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
 
 # 添加额外插件
 # git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
@@ -119,10 +123,10 @@ git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 #svn export https://github.com/linkease/istore/trunk/luci package/luci-app-store
 
 # 在线用户
-svn export https://github.com/haiibo/packages/trunk/luci-app-onliner package/luci-app-onliner
-sed -i '$i uci set nlbwmon.@nlbwmon[0].refresh_interval=2s' package/lean/default-settings/files/zzz-default-settings
-sed -i '$i uci commit nlbwmon' package/lean/default-settings/files/zzz-default-settings
-chmod 755 package/luci-app-onliner/root/usr/share/onliner/setnlbw.sh
+#svn export https://github.com/haiibo/packages/trunk/luci-app-onliner package/luci-app-onliner
+#sed -i '$i uci set nlbwmon.@nlbwmon[0].refresh_interval=2s' package/lean/default-settings/files/zzz-default-settings
+#sed -i '$i uci commit nlbwmon' package/lean/default-settings/files/zzz-default-settings
+#chmod 755 package/luci-app-onliner/root/usr/share/onliner/setnlbw.sh
 
 # x86 型号只显示 CPU 型号
 #sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}${hydrid}/g' package/lean/autocore/files/x86/autocore
