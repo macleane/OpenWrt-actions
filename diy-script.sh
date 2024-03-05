@@ -9,7 +9,7 @@ sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bis
   python-docutils python3-pyelftools qemu-utils re2c rsync scons squashfs-tools subversion swig \
   texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev golang
 # 修改默认IP
- #sed -i 's/10.10.10.9/10.0.0.1/g' package/base-files/files/bin/config_generate
+ sed -i 's/10.10.10.9/10.10.10.1/g' package/base-files/files/bin/config_generate
 
 # 更改默认 Shell 为 zsh
  sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
@@ -28,8 +28,6 @@ sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bis
 #rm -rf feeds/luci/applications/luci-app-serverchan
 
 #插件包
-#git clone --depth=1 https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
-#git clone --depth=1 https://github.com/kenzok8/small.git package/small
 git clone --depth=1 https://github.com/sirpdboy/sirpdboy-package.git package/sirpdboy-package
 git clone --depth=1 https://github.com/sirpdboy/luci-app-autotimeset.git package/luci-app-autotimeset
 git clone --depth=1 https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
@@ -44,6 +42,7 @@ git clone --depth=1 https://github.com/lucikap/luci-app-nettask.git package/luci
 git clone --depth=1 https://github.com/sbwml/openwrt_helloworld.git package/openwrt_helloworld
 git clone --depth=1 https://github.com/sbwml/luci-app-airconnect.git package/luci-app-airconnect
 #git clone --depth=1 https://github.com/sbwml/luci-app-daed-next.git package/luci-app-daed-next
+git clone --depth=1 https://github.com/sbwml/luci-app-alist.git package/luci-app-alist
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
 find ./ | grep Makefile | grep mosdns | xargs rm -f
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
