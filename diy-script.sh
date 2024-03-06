@@ -9,13 +9,13 @@ sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bis
   python-docutils python3-pyelftools qemu-utils re2c rsync scons squashfs-tools subversion swig \
   texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev golang
 # 修改默认IP
- sed -i 's/10.10.10.9/10.10.10.1/g' package/base-files/files/bin/config_generate
+ #sed -i 's/10.10.10.9/10.10.10.1/g' package/base-files/files/bin/config_generate
 
 # 更改默认 Shell 为 zsh
- sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
+ #sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 
 # TTYD 自动登录
- sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
+ #sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
 
 # 移除要替换的包
 #rm -rf feeds/packages/net/mosdns
@@ -128,7 +128,7 @@ echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.defa
 #chmod 755 package/luci-app-onliner/root/usr/share/onliner/setnlbw.sh
 
 # x86 型号只显示 CPU 型号
-#sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}${hydrid}/g' package/lean/autocore/files/x86/autocore
+sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}${hydrid}/g' package/lean/autocore/files/x86/autocore
 
 # 修改本地时间格式
 #sed -i 's/os.date()/os.date("%a %Y-%m-%d %H:%M:%S")/g' package/lean/autocore/files/*/index.htm
