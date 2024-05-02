@@ -26,13 +26,17 @@ sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bis
 #rm -rf feeds/luci/applications/luci-app-mosdns
 #rm -rf feeds/luci/applications/luci-app-netdata
 #rm -rf feeds/luci/applications/luci-app-serverchan
+#rm -rf feeds/packages/lang/golang
 
 #插件包
-git clone --depth=1 https://github.com/sirpdboy/sirpdboy-package.git package/sirpdboy-package
+git clone --depth=1 https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
+git clone --depth=1 https://github.com/kenzok8/small.git package/small
+#git clone --depth=1 https://github.com/sirpdboy/sirpdboy-package.git package/sirpdboy-package
 git clone --depth=1 https://github.com/sirpdboy/luci-app-autotimeset.git package/luci-app-autotimeset
-git clone --depth=1 https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
+#git clone --depth=1 https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
 git clone --depth=1 https://github.com/tty228/luci-app-wechatpush.git package/luci-app-wechatpush
 git clone --depth=1 https://github.com/sirpdboy/luci-app-lucky.git package/luci-app-lucky
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages.git package/openwrt-passwall-packages
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git package/passwall2
 git clone --depth=1 https://github.com/brvphoenix/wrtbwmon.git package/wrtbwmon
@@ -42,7 +46,7 @@ git clone --depth=1 https://github.com/lucikap/luci-app-nettask.git package/luci
 git clone --depth=1 https://github.com/sbwml/openwrt_helloworld.git package/openwrt_helloworld
 git clone --depth=1 https://github.com/sbwml/luci-app-airconnect.git package/luci-app-airconnect
 #git clone --depth=1 https://github.com/sbwml/luci-app-daed-next.git package/luci-app-daed-next
-git clone --depth=1 https://github.com/sbwml/luci-app-alist.git package/luci-app-alist
+#git clone --depth=1 https://github.com/sbwml/luci-app-alist.git package/luci-app-alist
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
 find ./ | grep Makefile | grep mosdns | xargs rm -f
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
@@ -157,9 +161,8 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_U
 # sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-v2ray-server/luasrc/model/cbi/v2ray_server/*.lua
 # sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-v2ray-server/luasrc/view/v2ray_server/*.htm
 
+./scripts/feeds update -a
 #golang
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
-
-./scripts/feeds update -a
 ./scripts/feeds install -a
