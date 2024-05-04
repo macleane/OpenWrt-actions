@@ -33,14 +33,14 @@ git clone --depth=1 https://github.com/kenzok8/openwrt-packages.git package/open
 git clone --depth=1 https://github.com/kenzok8/small.git package/small
 #git clone --depth=1 https://github.com/sirpdboy/sirpdboy-package.git package/sirpdboy-package
 git clone --depth=1 https://github.com/sirpdboy/luci-app-autotimeset.git package/luci-app-autotimeset
-#git clone --depth=1 https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
+git clone --depth=1 https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
 git clone --depth=1 https://github.com/tty228/luci-app-wechatpush.git package/luci-app-wechatpush
 git clone --depth=1 https://github.com/sirpdboy/luci-app-lucky.git package/luci-app-lucky
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages.git package/openwrt-passwall-packages
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git package/passwall2
 git clone --depth=1 https://github.com/brvphoenix/wrtbwmon.git package/wrtbwmon
-#git clone --depth=1 https://github.com/haiibo/luci-app-onliner.git package/luci-app-onliner
+git clone --depth=1 https://github.com/haiibo/luci-app-onliner.git package/luci-app-onliner
 git clone --depth=1 https://github.com/sirpdboy/luci-app-eqosplus package/luci-app-eqosplus
 git clone --depth=1 https://github.com/lucikap/luci-app-nettask.git package/luci-app-nettask
 git clone --depth=1 https://github.com/sbwml/openwrt_helloworld.git package/openwrt_helloworld
@@ -128,10 +128,10 @@ git clone --depth=1 https://github.com/sirpdboy/luci-theme-kucat.git package/luc
 #svn export https://github.com/linkease/istore/trunk/luci package/luci-app-store
 
 # 在线用户
-svn export https://github.com/haiibo/packages/trunk/luci-app-onliner package/luci-app-onliner
-sed -i '$i uci set nlbwmon.@nlbwmon[0].refresh_interval=2s' package/lean/default-settings/files/zzz-default-settings
-sed -i '$i uci commit nlbwmon' package/lean/default-settings/files/zzz-default-settings
-chmod 755 package/luci-app-onliner/root/usr/share/onliner/setnlbw.sh
+#svn export https://github.com/haiibo/packages/trunk/luci-app-onliner package/luci-app-onliner
+#sed -i '$i uci set nlbwmon.@nlbwmon[0].refresh_interval=2s' package/lean/default-settings/files/zzz-default-settings
+#sed -i '$i uci commit nlbwmon' package/lean/default-settings/files/zzz-default-settings
+#chmod 755 package/luci-app-onliner/root/usr/share/onliner/setnlbw.sh
 
 # x86 型号只显示 CPU 型号
 sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}${hydrid}/g' package/lean/autocore/files/x86/autocore
