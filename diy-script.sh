@@ -7,7 +7,7 @@ sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bis
   libncursesw5-dev libpython3-dev libreadline-dev libssl-dev libtool lld llvm lrzsz mkisofs msmtp \
   nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pip python3-ply \
   python-docutils python3-pyelftools qemu-utils re2c rsync scons squashfs-tools subversion swig \
-  texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev jq
+  texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev jq iputils-arping
 # 修改默认IP
  #sed -i 's/10.10.10.9/10.10.10.1/g' package/base-files/files/bin/config_generate
 
@@ -29,16 +29,19 @@ sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bis
 #rm -rf feeds/packages/lang/golang
 
 #插件包
-git clone --depth=1 https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
-git clone --depth=1 https://github.com/kenzok8/small.git package/small
+#git clone --depth=1 https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
+#git clone --depth=1 https://github.com/kenzok8/small.git package/small
 #git clone --depth=1 https://github.com/sirpdboy/sirpdboy-package.git package/sirpdboy-package
+sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+sed -i '2i src-git small https://github.com/kenzok8/small' feeds.conf.default
+echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
 git clone --depth=1 https://github.com/sirpdboy/luci-app-autotimeset.git package/luci-app-autotimeset
-git clone --depth=1 https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
+#git clone --depth=1 https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
 git clone --depth=1 https://github.com/tty228/luci-app-wechatpush.git package/luci-app-wechatpush
 git clone --depth=1 https://github.com/sirpdboy/luci-app-lucky.git package/luci-app-lucky
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages.git package/openwrt-passwall-packages
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall.git package/passwall
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git package/passwall2
+#git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages.git package/openwrt-passwall-packages
+#git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall.git package/passwall
+#git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git package/passwall2
 git clone --depth=1 https://github.com/brvphoenix/wrtbwmon.git package/wrtbwmon
 git clone --depth=1 https://github.com/haiibo/luci-app-onliner.git package/luci-app-onliner
 git clone --depth=1 https://github.com/sirpdboy/luci-app-eqosplus package/luci-app-eqosplus
@@ -52,9 +55,8 @@ find ./ | grep Makefile | grep mosdns | xargs rm -f
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 #turboacc
-git clone --depth=1 https://github.com/chenmozhijin/turboacc.git -b luci package/luci-app-turboacc
-git clone --depth=1 https://github.com/chenmozhijin/turboacc.git -b package package/package-turboacc
-echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
+curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
+
 
 # 添加额外插件
 # git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
@@ -89,8 +91,8 @@ echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.defa
 # git clone https://github.com/apollo-ng/luci-theme-darkmatter
 # git clone https://gitlab.stusta.de/stustanet/luci-theme-ssn
 # git clone https://github.com/LeoHao/PPIP_LUCI_THEME
-git clone --depth=1 -b js https://github.com/gngpp/luci-theme-design.git package/luci-theme-design
-git clone --depth=1 https://github.com/sirpdboy/luci-theme-kucat.git package/luci-theme-kucat
+#git clone --depth=1 -b js https://github.com/gngpp/luci-theme-design.git package/luci-theme-design
+#git clone --depth=1 https://github.com/sirpdboy/luci-theme-kucat.git package/luci-theme-kucat
 
 # 更改 Argon 主题背景
 #cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
