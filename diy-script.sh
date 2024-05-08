@@ -91,7 +91,7 @@ curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turbo
 # git clone https://github.com/apollo-ng/luci-theme-darkmatter
 # git clone https://gitlab.stusta.de/stustanet/luci-theme-ssn
 # git clone https://github.com/LeoHao/PPIP_LUCI_THEME
-#git clone --depth=1 -b js https://github.com/gngpp/luci-theme-design.git package/luci-theme-design
+git clone --depth=1 -b js https://github.com/gngpp/luci-theme-design.git package/luci-theme-design
 #git clone --depth=1 https://github.com/sirpdboy/luci-theme-kucat.git package/luci-theme-kucat
 
 # 更改 Argon 主题背景
