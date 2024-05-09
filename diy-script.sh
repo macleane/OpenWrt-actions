@@ -12,10 +12,10 @@ sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bis
  #sed -i 's/10.10.10.9/10.10.10.1/g' package/base-files/files/bin/config_generate
 
 # 更改默认 Shell 为 zsh
- #sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
+ sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 
 # TTYD 自动登录
- #sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
+ sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
 
 # 移除要替换的包
 #rm -rf feeds/packages/net/mosdns
@@ -26,17 +26,14 @@ sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bis
 #rm -rf feeds/luci/applications/luci-app-mosdns
 #rm -rf feeds/luci/applications/luci-app-netdata
 #rm -rf feeds/luci/applications/luci-app-serverchan
-#rm -rf feeds/packages/lang/golang
+rm -rf feeds/packages/lang/golang
 
 #插件包
-#git clone --depth=1 https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
-#git clone --depth=1 https://github.com/kenzok8/small.git package/small
-#git clone --depth=1 https://github.com/sirpdboy/sirpdboy-package.git package/sirpdboy-package
 sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 sed -i '2i src-git small https://github.com/kenzok8/small' feeds.conf.default
 echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
 git clone --depth=1 https://github.com/sirpdboy/luci-app-autotimeset.git package/luci-app-autotimeset
-#git clone --depth=1 https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
+git clone --depth=1 https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-advancedplus
 git clone --depth=1 https://github.com/tty228/luci-app-wechatpush.git package/luci-app-wechatpush
 git clone --depth=1 https://github.com/sirpdboy/luci-app-lucky.git package/luci-app-lucky
 #git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages.git package/openwrt-passwall-packages
@@ -44,12 +41,8 @@ git clone --depth=1 https://github.com/sirpdboy/luci-app-lucky.git package/luci-
 #git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git package/passwall2
 git clone --depth=1 https://github.com/brvphoenix/wrtbwmon.git package/wrtbwmon
 git clone --depth=1 https://github.com/haiibo/luci-app-onliner.git package/luci-app-onliner
-git clone --depth=1 https://github.com/sirpdboy/luci-app-eqosplus package/luci-app-eqosplus
-git clone --depth=1 https://github.com/lucikap/luci-app-nettask.git package/luci-app-nettask
 git clone --depth=1 https://github.com/sbwml/openwrt_helloworld.git package/openwrt_helloworld
 git clone --depth=1 https://github.com/sbwml/luci-app-airconnect.git package/luci-app-airconnect
-#git clone --depth=1 https://github.com/sbwml/luci-app-daed-next.git package/luci-app-daed-next
-#git clone --depth=1 https://github.com/sbwml/luci-app-alist.git package/luci-app-alist
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
 find ./ | grep Makefile | grep mosdns | xargs rm -f
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
@@ -151,7 +144,7 @@ cp -f $GITHUB_WORKSPACE/scripts/011-fix-mbo-modules-build.patch package/network/
 
 # 修改 Makefile
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/..\/..\/luci.mk/$(TOPDIR)\/feeds\/luci\/luci.mk/g' {}
-find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/..\/..\/lang\/golang\/golang-package.mk/$(TOPDIR)\/feeds\/packages\/lang\/golang\/golang-package.mk/g' {}
+# find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/..\/..\/lang\/golang\/golang-package.mk/$(TOPDIR)\/feeds\/packages\/lang\/golang\/golang-package.mk/g' {}
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_URL:=@GHREPO/PKG_SOURCE_URL:=https:\/\/github.com/g' {}
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_URL:=@GHCODELOAD/PKG_SOURCE_URL:=https:\/\/codeload.github.com/g' {}
 
@@ -164,7 +157,6 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_U
 # sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-v2ray-server/luasrc/view/v2ray_server/*.htm
 
 ./scripts/feeds update -a
-#golang
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 ./scripts/feeds install -a
