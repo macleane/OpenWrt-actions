@@ -10,7 +10,7 @@ sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bis
   texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev jq iputils-arping
 # 修改默认IP
  #sed -i 's/10.10.10.9/10.10.10.1/g' package/base-files/files/bin/config_generate
-
+make distclean
 # 更改默认 Shell 为 zsh
  sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 
