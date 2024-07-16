@@ -9,7 +9,7 @@ sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bis
   python-docutils python3-pyelftools qemu-utils re2c rsync scons squashfs-tools subversion swig \
   texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev jq iputils-arping
 # 修改默认IP
- #sed -i 's/10.10.10.9/10.10.10.1/g' package/base-files/files/bin/config_generate
+ sed -i 's/192.168.1.1/10.10.10.9/g' package/base-files/files/bin/config_generate
 make distclean
 # 更改默认 Shell 为 zsh
  sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
@@ -123,10 +123,10 @@ git clone --depth=1 -b js https://github.com/gngpp/luci-theme-design.git package
 #svn export https://github.com/linkease/istore/trunk/luci package/luci-app-store
 
 # 在线用户
-#svn export https://github.com/haiibo/packages/trunk/luci-app-onliner package/luci-app-onliner
-#sed -i '$i uci set nlbwmon.@nlbwmon[0].refresh_interval=2s' package/lean/default-settings/files/zzz-default-settings
-#sed -i '$i uci commit nlbwmon' package/lean/default-settings/files/zzz-default-settings
-#chmod 755 package/luci-app-onliner/root/usr/share/onliner/setnlbw.sh
+svn export https://github.com/haiibo/packages/trunk/luci-app-onliner package/luci-app-onliner
+sed -i '$i uci set nlbwmon.@nlbwmon[0].refresh_interval=2s' package/lean/default-settings/files/zzz-default-settings
+sed -i '$i uci commit nlbwmon' package/lean/default-settings/files/zzz-default-settings
+chmod 755 package/luci-app-onliner/root/usr/share/onliner/setnlbw.sh
 
 # x86 型号只显示 CPU 型号
 sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}${hydrid}/g' package/lean/autocore/files/x86/autocore
