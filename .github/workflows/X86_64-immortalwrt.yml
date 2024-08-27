@@ -1,25 +1,25 @@
-name: X86_64 immortalwrt
+name: X86_64 OpenWrt
 
 on:
-#  workflow_dispatch:
-#  schedule:
-#    - cron: 00 0 * * 1
+  workflow_dispatch:
+  schedule:
+    - cron: 00 0 * * 1
 
 env:
-  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: openwrt-23.05
   CONFIG_FILE: configs/x86_64.config
   DIY_SCRIPT: diy-script.sh
   CLASH_KERNEL: amd64
-  CACHE_TOOLCHAIN: true
+  CACHE_TOOLCHAIN: false
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: X86_64_immortalwrt
+  FIRMWARE_TAG: X86_64_OpenWrt
   TZ: Asia/Shanghai
 
 jobs:
   Build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     steps:
     - name: Check Server Performance
@@ -173,5 +173,5 @@ jobs:
           **This is OpenWrt Firmware for ${{ env.FIRMWARE_TAG }}**
           * 这是 ${{ env.FIRMWARE_TAG }} 平台使用的 OpenWrt 固件
           默认 IP：10.10.10.9 默认密码：password
-          当前使用版本:【编译前的最后一次[➦主源码](https://github.com/immortalwrt/immortalwrt)更新记录】
+          当前使用版本:【编译前的最后一次[➦主源码](https://github.com/openwrt/openwrt/branches)更新记录】
           ${{ env.VERSION_INFO }}
